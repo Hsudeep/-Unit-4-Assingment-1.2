@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
+import Navjs from './components/Divbar.jsx';
+import Midlink from './components/Midbar.jsx';
+import Sidebtn from './components/Sidebtn.jsx';
 function App() {
+  let mid = [
+    {link: "Services"},
+    {link: "Project"},
+    {link: "About"},
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+      <div className='logo'>
+        <Navjs></Navjs>
+      </div>
+      
+      <div className='links'>
+        <a href='#'>
+        {mid.map((comp)=>(
+          <Midlink {...comp}/>
+        ))}
         </a>
-      </header>
+        
+      </div>
+      
+      <div className='btn'>
+      <Sidebtn/>
+      </div>
     </div>
   );
 }
